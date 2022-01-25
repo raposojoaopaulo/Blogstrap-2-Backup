@@ -1,0 +1,17 @@
+<% if user_signed_in? %>
+
+<div class="btn-group">
+  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <%= current_user.email %>
+  </button>&nbsp;
+  <div class="btn-group" role="group" aria-label="Basic outlined example">  
+    <%= link_to 'Edit User', edit_user_registration_path, class: "btn btn-sm btn-outline-secondary" %>&nbsp;
+    <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-sm btn-outline-danger" %>&nbsp;
+  </div>
+    
+<% else %>
+  <%= link_to 'Login', user_session_path, class: "btn btn-sm btn-outline-secondary" %>&nbsp;
+  <%= link_to 'Register', new_user_registration_path, class: "btn btn-sm btn-outline-secondary" %>
+<% end %>
+
+
