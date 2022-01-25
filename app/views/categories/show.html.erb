@@ -1,0 +1,11 @@
+<p style="color: green">
+
+<%= render @category %>
+
+<div>
+  <%= link_to "Edit this category", edit_category_path(@category), class: "btn btn-secondary" %>
+  <%= link_to "Back to categories", categories_path, class: "btn btn-secondary" %>
+  <p>
+    <%= button_to "Destroy this category", @category, method: :delete, class: "btn btn-danger" %>
+  </p>
+</div>
