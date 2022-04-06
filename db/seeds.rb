@@ -14,3 +14,25 @@
 #   {title: "Ladrão e Histórias da Minha Área", body: "Mantendo sua tradição de lançar álbuns no dia 13 de março, neste mesmo dia, no ano de 2019, Djonga lança o álbum Ladrão"}
 #   ]
 # )
+
+Article.delete_all
+
+user = User.first
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi vel consectetur euismod, nisi nisi aliquet nunc, euismod aliquet nunc nisi vel consectetur euismod, nisi nisi aliquet nunc. Donec euismod, nisi vel consectetur euismod, nisi nisi aliquet nunc, euismod aliquet nunc nisi vel consectetur euismod, nisi nisi aliquet nunc. Donec euismod, nisi vel consectetur euismod, nisi nisi aliquet nunc, euismod aliquet nunc nisi vel consectetur euismod, nisi nisi aliquet nunc. Donec euismod, nisi vel consectetur euismod, nisi nisi aliquet nunc, euismod aliquet nunc nisi vel consectetur euismod, nisi nisi aliquet nunc. Donec euismod, nisi vel consectetur euismod, nisi nisi aliquet nunc, euismod aliquet nunc nisi vel consectetur euismod, nisi nisi aliquet nunc. Donec euismod, nisi vel consectetur euismod, nisi nisi aliquet nunc, euismod aliquet nunc nisi vel consectetur euismod, nisi nisi aliquet nunc. Donec euismod, nisi vel consectetur euismod, nisi nisi aliquet nunc, euismod aliquet nunc nisi vel consectetur euismod, nisi nisi aliquet nunc. Donec euismod, nisi vel consectetur euismod, nisi nisi aliquet nunc, euismod aliquet nunc nisi vel consectetur euismod,"
+
+p 'Stared seeding...'
+p 'Creating articles...'
+
+Category.all.each do |category|
+  30.times do
+    Article.create(
+      title: "Article #{rand(10000)}",
+      body: text,
+      category_id: category.id,
+      user_id: user.id,
+      created_at: rand(365).days.ago
+    )
+  end
+end
+
+p 'End seeding'
