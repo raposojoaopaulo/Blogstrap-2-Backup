@@ -3,7 +3,7 @@ class Article < ApplicationRecord
   belongs_to :user
 
   validates :title, :presence => true, :length => {:minimum=>3, :maximum=>50}
-  validates :body, :presence => true, :length => {:minimum=>10, :maximum=>3999}
+  validates :body, :presence => true, :length => {:minimum=>10, :maximum=>4999}
 
   paginates_per 7
 
